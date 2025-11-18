@@ -1,0 +1,184 @@
+SAS 9.4 win 64 SID???2015?12?31?
+gg728_90();var cpro_id = "u1962436";
+
+
+
+
+ (adsbygoogle = window.adsbygoogle || []).push({});
+
+
+
+ gg336x280();
+
+
+
+ (adsbygoogle = window.adsbygoogle || []).push({});
+
+
+ [_SID_]
+ Version=9.4
+ Revision=9.4
+ Platform_long=Microsoft Windows Workstation for x64
+ Platform_short=wx6
+ Order=9B638F
+ License_prod=SAS
+ Setnumid=70081240
+ SID_schema=2
+ ph_agreement=PROMPT
+ SID_header=SAS 9.4
+ [_Info_]
+ [_FileData_]
+ $_Filename=setinit.sss
+ $_Path=sas\core\sasinst\
+ $_Date=
+ $_Time=
+ $_Stream=-------------------- BEGIN --------------------
+ PROC SETINIT RELEASE='9.4';
+ SITEINFO NAME='APPALACHIAN STATE UNIVERSITY - SFA T&R'
+ SITE=70081240 OSNAME='WX64_WKS' RECREATE WARN=45 GRACE=45
+ BIRTHDAY='10DEC2014'D EXPIRE='31DEC2015'D PASSWORD=190803283;
+ CPU MODEL=' ' MODNUM=' ' SERIAL=' ' NAME=CPU000;
+ EXPIRE 'PRODNUM000' 'PRODNUM001' 'PRODNUM002' 'PRODNUM003'
+ 'PRODNUM004' 'PRODNUM005' 'PRODNUM006' 'PRODNUM007'
+ 'PRODNUM008' 'PRODNUM010' 'PRODNUM013' 'PRODNUM015'
+ 'PRODNUM025' 'PRODNUM035' 'PRODNUM050' 'PRODNUM070'
+ 'PRODNUM075' 'PRODNUM094' 'PRODNUM095' 'PRODNUM119'
+ 'PRODNUM123' 'PRODNUM164' 'PRODNUM165' 'PRODNUM166'
+ 'PRODNUM167' 'PRODNUM192' 'PRODNUM194' 'PRODNUM204'
+ 'PRODNUM208' 'PRODNUM209' 'PRODNUM215' 'PRODNUM219'
+ 'PRODNUM225' 'PRODNUM448' 'PRODNUM535' 'PRODNUM538'
+ 'PRODNUM550' 'PRODNUM555' 'PRODNUM557' 'PRODNUM560'
+ 'PRODNUM561' 'PRODNUM563' 'PRODNUM564' 'PRODNUM565'
+ 'PRODNUM677' 'PRODNUM678' 'PRODNUM884' '31DEC2015'D / CPU=CPU000;
+ SAVE; RUN;
+ *DROPPED SAS/INSIGHT; *DROPPED SAS/LAB;
+ *DROPPED SAS/Secure Windows;
+ *PRODNUM000 = BASE Base SAS;
+ *PRODNUM0 SAS 9.4 win 64 SID???2015?12?31?_word?????????_???http://www.wendangwang.com/doc/655eb72104264e90bcf1a3bc 01 = STAT SAS/STAT;
+ *PRODNUM002 = GRAPH SAS/GRAPH;
+ *PRODNUM003 = ETS SAS/ETS;
+ *PRODNUM004 = FSP SAS/FSP;
+ *PRODNUM005 = OR SAS/OR;
+ *PRODNUM006 = AF SAS/AF;
+ *PRODNUM007 = IML SAS/IML;
+ *PRODNUM008 = QC SAS/QC;
+ *PRODNUM010 = SHARE SAS/SHARE;
+ *PRODNUM013 = ASSIST SAS/ASSIST;
+ *PRODNUM015 = CONNECT SAS/CONNECT;
+ *PRODNUM025 = EIS SAS/EIS;
+ *PRODNUM035 = SHARENET SAS/SHARE*NET;
+ *PRODNUM050 = DMINESOL Enterprise Miner Server;
+ *PRODNUM070 = MDDBCOM MDDB Server common products;
+ *PRODNUM075 = INTTECHSRV SAS Integration Technologies;
+ *PRODNUM094 = SECUREBNDL SAS/Secure;
+ *PRODNUM095 = SECUREWBNDL SAS/Secure Windows;
+ *PRODNUM119 = EGUIDE SAS Enterprise Guide;
+ *PRODNUM123 = ESRIBRDGORD SAS Bridge for ESRI;
+ *PRODNUM164 = OROPT SAS/OR Optimization;
+ *PRODNUM165 = ORPRS SAS/OR Project and Resource Scheduling;
+ *PRODNUM166 = ORIVS SAS/OR Interactive Visualization and Simulation;
+ *PRODNUM167 = ORLSO SAS/OR Local Search Optimization;
+ *PRODNUM192 = DB2BNDL SAS/ACCESS DB2;
+ *PRODNUM194 = ORACLEBNDL SAS/ACCESS ORACLE;
+ *PRODNUM204 = SYBASE SAS/ACCESS SYBASE SQL;
+ *PRODNUM208 = PCFILE SAS/ACCESS PC Files;
+ *PRODNUM209 = ODBC SAS/ACCESS ODBC;
+ *PRODNUM215 = OLEDB SAS/ACCESS TO OLE DB;
+ *PRODNUM219 = TERADATABNDL SAS/ACCESS Teradata;
+ *PRbd336x280();
+
+
+
+ (adsbygoogle = window.adsbygoogle || []).push({});
+
+
+ ODNUM225 = MYSQL SAS/ACCESS Intface MYSQL;
+ *PRODNUM448 = DMINEDESKTOP SAS Enterprise Miner for Desktop;
+ *PRODNUM535 = STATSTUDIO SAS/IML Studio;
+ *PRODNUM538 = WKSPSRVLOCAL SAS Workspace Server for Local Access;
+ *PRODNUM550 = NETEZZABNDL SAS/ACCESS Netezza;
+ *PRODNUM555 = ASTERBNDL SAS/AC
+SAS 9.4 win 64 SID???2015?12?31?_word?????????_???http://www.wendangwang.com/doc/655eb72104264e90bcf1a3bc 
+
+
+SAS 9.4 win 64 SID???2015?12?31?
+gg728_90();var cpro_id = "u1962436";
+
+
+
+
+ (adsbygoogle = window.adsbygoogle || []).push({});
+
+
+
+ gg336x280();
+
+
+
+ (adsbygoogle = window.adsbygoogle || []).push({});
+
+
+ CESS Interface to Aster nCluster;
+ *PRODNUM557 = GREENPLMBNDL SAS/ACCESS Interface to Greenplum;
+ *PRODNUM560 = SYBASEIQBNDL SAS/ACCESS Interface to Sybase IQ;
+ *PRODNUM561 = HADOOPBNDL SAS/Access Interface to Hadoop;
+ *PRODNUM563 = VERTICABNDL SAS/ACCESS Interface to Vertica;
+ *PRODNUM564 = POSTGRESBNDL SAS/ACCESS Interface to PostgreSQL;
+ *PRODNUM565 = IMPALABNDL SAS/ACCESS Interface to Impala;
+ *PRODNUM677 = HPS SAS High-Performance Server;
+ *PRODNUM678 = AMOEXCEL SAS Add-in for Microsoft Excel;
+ *PRODNUM884 = SAPHANABNDL SAS/ACCESS Interface SAP HANA;
+ *LICENSE=SAS 000001717437;
+ *0039466004 9.4;
+ *XYZ 562222;
+ $_Stream=--------------------- END ---------------------
+ $_Filename=tletter.txt $_Path=.\ 
+ $_Date= 
+ $_Time=
+ $_Stream=-------------------- BEGIN -------------------- 
+ Microsoft Windows Workstation for x64 
+ All Standard SAS/ACCESS Engines 31DEC2015 
+ Base SAS 31DEC2015 
+ Education Analytical Suite 31DEC2015 
+ SAS Bridge for Esri 31DEC2015 
+ SAS Enterprise Guide 31DEC SAS 9.4 win 64 SID???2015?12?31?_word?????????_???http://www.wendangwang.com/doc/655eb72104264e90bcf1a3bc/2 2015 
+ SAS Enterprise Miner for Desktop 31DEC2015 
+ SAS Integration Technologies 31DEC2015 
+ SAS/ACCESS Interface to Aster 31DEC2015 
+ SAS/ACCESS Interface to DB2 31DEC2015 
+ SAS/ACCESS Interface to Greenplum 31DEC2015 
+ SAS/ACCESS Interface to Hadoop 31DEC2015 
+ SAS/ACCESS Interface to Impala 31DEC2015 
+ SAS/ACCESS Interface to MySQL 31DEC2015 
+ SAS/ACCESS Interface to Netezza 31DEC2015 
+ SAS/ACCESS Interface to ODBC 31DEC2015 
+ SAS/ACCESS Interface to OLE DB 31DEC2015 
+ SAS/ACCESS Interface to Oracle 31DEC2015 
+ SAS/ACCESS Interface to PC Files 31DEC2015 
+ SAS/ACCESS Interface to PostgreSQL 31DEC2015 
+ SAS/ACCESS Interface to SAP HANA 31DEC2015 
+ SAS/ACCESS Interface to Sybase 31DEC2015 
+ SAS/ACCESS Interface to Sybase IQ 31DEC2015 
+ SAS/ACCESS Interface to Teradata 31DEC2015 
+ SAS/ACCESS Interface to Vertica 31DEC2015 
+ SAS/AF 31DEC2015 
+ SAS/bd336x280();
+
+
+
+ (adsbygoogle = window.adsbygoogle || []).push({});
+
+
+ ASSIST 31DEC2015 
+ SAS/CONNECT 31DEC2015 
+ SAS/EIS 31DEC2015 
+ SAS/ETS 31DEC2015 
+ SAS/FSP 31DEC2015 
+ SAS/GRAPH 31DEC2015 
+ SAS/IML 31DEC2015 
+ SAS/OR 31DEC2015 
+ SAS/QC 31DEC2015 
+ SAS/SHARE 31DEC2015 
+ SAS/STAT 31DEC2015 
+ $_Stream=--------------------- END --------------------- 
+ [_EOF_]
