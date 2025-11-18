@@ -1,0 +1,38 @@
+1                                                     The SAS System                          01:36 Thursday, May 25, 2023
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M2 MBCS3170) 
+      Licensed to YALE UNIVERSITY - SFA - T&R, Site 70083298.
+NOTE: This session is executing on the X64_8HOME  platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 13.2
+      SAS/ETS 13.2
+      SAS/OR 13.2
+      SAS/IML 13.2
+      SAS/QC 13.2
+
+NOTE: Additional host information:
+
+ X64_8HOME WIN 6.2.9200  Workstation
+
+NOTE: SAS initialization used:
+      real time           7.07 seconds
+      cpu time            0.23 seconds
+      
+1          x 'chdir "C:\Apache\htdocs\casper2\Main\Library\SAS\get_prog_name"'
+1        !                                                                    ;
+2          
+3          %include "&basedir\Main\Library\SAS\get_prog_name\get_prog_name.sas";
+49         
+50         %put %get_prog_name(test=1);
+example
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           7.54 seconds
+      cpu time            0.26 seconds
+      

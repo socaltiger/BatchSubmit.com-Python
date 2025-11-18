@@ -1,0 +1,40 @@
+1                                                     The SAS System                           19:49 Tuesday, May 19, 2020
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M2 MBCS3170) 
+      Licensed to MICHIGAN STATE UNIVERSITY-T&R-SFA, Site 70082953.
+NOTE: This session is executing on the X64_8HOME  platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 13.2
+      SAS/ETS 13.2
+      SAS/OR 13.2
+      SAS/IML 13.2
+      SAS/QC 13.2
+
+NOTE: Additional host information:
+
+ X64_8HOME WIN 6.2.9200  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.43 seconds
+      cpu time            0.15 seconds
+      
+1          x 'chdir "C:\Apache\htdocs\casper2\Main\Library\SAS\nobs"'
+1        !                                                           ;
+2          
+3          %macro nobs(dsn=);
+4              %let DSNID=%sysfunc(OPEN(&dsn.,IN));
+5              %let NOBS=%sysfunc(ATTRN(&DSNID,NOBS));
+6              %let RC=%sysfunc(CLOSE(&DSNID));
+7              &NOBS
+8          %mend;
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           0.48 seconds
+      cpu time            0.17 seconds
+      

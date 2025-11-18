@@ -1,0 +1,117 @@
+1                                                     The SAS System                         19:37 Saturday, June 27, 2020
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M2 MBCS3170) 
+      Licensed to MICHIGAN STATE UNIVERSITY-T&R-SFA, Site 70082953.
+NOTE: This session is executing on the X64_8HOME  platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 13.2
+      SAS/ETS 13.2
+      SAS/OR 13.2
+      SAS/IML 13.2
+      SAS/QC 13.2
+
+NOTE: Additional host information:
+
+ X64_8HOME WIN 6.2.9200  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.35 seconds
+      cpu time            0.23 seconds
+      
+1          x 'chdir "C:\Apache\htdocs\casper2\Main\Library\SAS\getvarlist"'
+1        !                                                                 ;
+2          
+3          /*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}
+4          Macro procedure GetVarList creates a list of all the character or numeric variables
+5          in the specified dataset.  The macro parameters are:
+6          
+7              datain  = Dataset to use.
+8              type    = Variable type (Num or Char).
+9              varlist = Macro variable returned containing the list of numeric or character variables.
+10         
+11         Example:
+12         *%GetVarList(dataset,type,varlist);
+13         %GetVarList(work.a,Num,varlist);
+14         
+15         *}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*/
+16         
+17         *Returns a list of Numeric(Num) or Character(Char) variables from the dataset;
+18         %Macro GetVarList(dataset,type,mvarlist);
+19           %If %Checkdata(&dataset,Y) %Then %Do;
+20             %If %CheckStr(&type,Num Char,Choice,Y) %Then %Do;
+21               %Global &mvarlist;
+22               Ods Listing Select None;
+23               Ods Output Variables(Match_all Persist=Proc)=work._mmvars;
+24               Proc Contents Data=&dataset; Run;
+25               Ods Output Clear;
+26               Ods Listing Select All;
+27               Data work._mmakvars;
+28                 Retain _mn 0;
+29                 Set work._mmvars;
+30                 If Upcase(type)=Upcase("&type") Then Do;
+31                   _mn=_mn+1;
+32                   Call Symput(Compress('var'||_mn),variable);
+33         	End;
+34                 Call Symput('mmax',Compress(_mn));
+35               Run;
+36               %Let mt=&mmax;
+37               %Let &mvarlist=;
+38               %Do _i=1 %To &mmax;
+39                 %Let &mvarlist=&&&mvarlist &&&var&_i;
+40               %End;
+41               Proc Datasets Library=work Memtype=data NoDetails NoList;
+42                 Delete _mmvars _mmakvars;
+2                                                     The SAS System                         19:37 Saturday, June 27, 2020
+
+43               Run;
+44             %End;
+45           %End;
+46         %Mend GetVarList;
+47         
+48         %Macro CheckData(dataset,Message);
+49           %Let dsid=%Sysfunc(Open(&dataset,Is));
+50           %If &dsid=0 %Then %Do;
+51             %Let checkdata=0;
+52             %If &Message=Y %then %Put ERROR: Dataset &dataset is not available.;
+53           %End; %Else %Do;
+54             %Let checkdata=1;
+55             %Let done=%Sysfunc(Close(&dsid));
+56           %End;
+57           &checkdata
+58         %Mend CheckData;
+59         
+60         %Macro CheckStr(value,choices,param,Message);
+61           %Let value=%Lowcase(&value);
+62           %Let choices=%Lowcase(&choices);
+63           %Let checkstr=0;
+64           %Let choice=%NextWord(choices);
+65           %Do %While (%Length(&choice)>0);
+66             %If "&value"="&choice" %Then %Let checkstr=1;
+67             %Let choice=%NextWord(choices);
+68           %End;
+69           %If &checkstr=0 %Then %Do;
+70             %If &Message=Y %then %put ERROR: Invalid option for ¶m in parameter list.;
+71           %End;
+72           &checkstr
+73         %Mend checkStr;
+74         
+75         %Macro NextWord(string);
+76           %Let space=%Index(&&&string,%Str( ));
+77           %Let size=%Length(&&&string);
+78           %If %Eval(&space)>0 %Then %Do;
+79             %Let NextWord=%Substr(&&&string,1,&space);
+80             %Let &string=%Substr(&&&string,&space+1,&size-&space);
+81           %End; %Else %Do; %Let NextWord=&&&string; %Let &string= ; %End;
+82           &NextWord
+83         %Mend NextWord;
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           0.47 seconds
+      cpu time            0.23 seconds
+      

@@ -1,0 +1,10 @@
+                                                      The SAS System                    17:44 Tuesday, August 13, 2019   1
+                                                             
+                                                    numeric vars: x y
+                                                    character vars: z
+
+                                                   Obs    x     y     z
+
+                                                    1     1    2.3    A
+                                                    2     4    5.6    B
+                                                    3     7    8.9    C
