@@ -247,6 +247,3 @@ sub main_page {
 
 	print "</body></html>\n";
 }
-
-
-
