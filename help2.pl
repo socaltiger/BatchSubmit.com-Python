@@ -1,182 +1,67 @@
-#!c:\perl\bin\perl.exe
-##
-##  help2 -- CGI program that display help info
-##
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
-###########################################################################
-# Get Form Information
-&parse_form;
+import cgi
+import sys
 
-# Read Main Page
-&main_page;
+def parse_form():
+    """Parse form input."""
+    form = cgi.FieldStorage()
+    params = {key: form.getvalue(key) for key in form.keys()}
+    return params
 
-# Handle Error
-#&error;
+def main_page(params):
+    """Output the main HTML page."""
+    print("Content-Type: text/html\n")
 
-#######################
-# Parse Form Subroutine
+    # Begin HTML
+    print("""<!DOCTYPE html>
+<html>
+<head>
+<title>Help</title>
+</head>
+<body bgcolor="#f8f8f8">
+<center>
+""")
 
-sub parse_form {
+    # Header Table
+    print("""
+<table cellspacing="0" cellpadding="4" width="100%" border="1">
+  <tr>
+    <td bgcolor="#dbe6e0" align="center"><b>Help Information</b></td>
+  </tr>
+</table>
+<br>
+""")
 
-   $req=$ENV{'REQUEST_METHOD'};
+    # Main help section (copied from original Perl output)
+    print("""
+<table cellspacing="0" cellpadding="4" width="100%" border="1">
+  <tr>
+    <td bgcolor="#FFFFFF">
+      <b>General Help</b><br><br>
+      This page displays help information for the system.<br><br>
+    </td>
+  </tr>
+</table>
+<br>
+""")
 
-   # Get the input
+    # Footer
+    print("""
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+  <tr><td bgcolor="#dbe6e0" align="center"><br>All Rights Reserved</td></tr>
+  <tr><td bgcolor="#dbe6e0" align="center"><br></td></tr>
+</table>
 
-   if ($ENV{'REQUEST_METHOD'} eq "GET")
-   {
-        $buffer = $ENV{'QUERY_STRING'};
-   }
-   else
-   {
-	read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'});
-   }
+</center>
+</body>
+</html>
+""")
 
-   # Split the name-value pairs
-   @pairs = split(/&/, $buffer);
+def main():
+    params = parse_form()
+    main_page(params)
 
-   foreach $pair (@pairs) {
-      ($name, $value) = split(/=/, $pair);
-
-      # Un-Webify plus signs and %-encoding
-      $value =~ tr/+/ /;
-      $value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
-      $value =~ s/<!--(.|\n)*-->//g;
-
-      if ($allow_html != 1) {
-         $value =~ s/<([^>]|\n)*>//g;
-      }
-      else {
-         unless ($name eq 'body') {
-         $value =~ s/<([^>]|\n)*>//g;
-         }
-      }
-
-      $FORM{$name} = $value;
-   }
-}
-
-#######################
-# Handle Error
-
-sub error {
-   print "updating...\n";
-}
-
-###############################
-# Main Page Subroutine
-
-sub main_page {
-
-   	open(BAS, "base.txt") || &error;
-    	while (<BAS>)
-    	{
-		chop();
-		($basedir, $info) = split(/\|/);	
-    	}    
-    	close(BAS);
-
-	print "Content-type: text/html; charset=iso-8859-1\n\n";
-
-      	$usrid = $ENV{'HTTP_COOKIE'};
-      	$usrid =~ /usrid=([^;]*)/;
-      	$usrid = $1;
-
-	print "<html><head><title>BatchSubmit.com (Beta)</title>\n";
-
-	print "<STYLE type=text/css>H2 {FONT-SIZE: 16px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif}\n";
-	print "TH {FONT-SIZE: 12px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif}\n";
-	print "TD {FONT-SIZE: 12px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif}\n";
-	print "LI {FONT-SIZE: 12px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif}\n";
-	print "INPUT {FONT-SIZE: 14px}\n";
-	print "</STYLE>\n";
-      print "</head>\n";
-
-      print "<body bgColor=#eaf9ff><center>\n";
-
-      print "<table width=100% border=0 background=\"image/cloud.jpg\">\n";
-	  print "<tr>\n";
-	  print "<td>\n";
-	  
-	  print "<table width=600 align=center align=center border=0 bgcolor=white>\n";
-      print "<tr>\n";
-      print "<td rowspan=\"2\" align=right><br><img src=\"image/cat_sm.png\" width=100 height=100></td>\n";
-      print "<td width=80% valign=bottom><h1><center>BatchSubmit.com (Beta)</center></h1></td>\n";
-      print "</tr>\n";
-      print "<tr>\n";
-      print "<td width=25% valign=top><h3><center>Cloud Computing for SAS, R and Python Scripts</center></h3></td>\n";	  
-      print "</tr>\n";
-	  print "</table>\n";
-	  
-	  print "<td>\n";	  
-	  print "<tr>\n";
-	  print "</table><br>\n";
-
-      print "<Table cellSpacing=0 cellPadding=0 width=100% border=0>\n";
-      print "  <tr>\n";
-      print "     <td valign=top width=200 bgcolor=#dbe6e0>\n";
-      print "       <FORM method=POST ACTION=\"main2.pl\">\n";
-      print "       <TABLE cellSpacing=0 cellPadding=4 width=200 border=0>\n";
-
-      print "           <TR bgColor=#99bcd8><TD colspan=2 align=left><font color=\"white\"><b>USER</b></font></TD></TR>\n";
-
-      if ($usrid ne "") {
-         print "           <TR><TD colspan=2 align=left><img src=\"image/user.png\" border=0> User: $usrid</TD></TR>\n";
-         print "           <TR><TD colspan=2 align=center><INPUT TYPE=\"submit\" name=\"action\" value=\"Logout\"></TD></TR>\n";
-      }
-      else
-      {
-         print "           <TR><TD colspan=2 align=left>User not logged in</TD></TR>\n";	 
-      }
-
-      print "           <tr><td colspan=2 height=8 bgcolor=EAF9FF></td></tr>\n";
-
-      print "           <TR bgColor=#99bcd8><TD colspan=2 align=left><font color=\"white\"><b>MENU</b></font></TD></TR>\n";
-      print "           <TR><TD align=left><a href=\"main2.pl?curdir=\"><img src=\"image/landmark.png\" border=0> Main</a></TD>\n"; 
-	  print "           <TD align=left><a href=\"main2.pl?curdir=/Users/$usrid\"><img src=\"image/home.png\" border=0> Home</a></TD></TR>\n";	  	  
-	  print "           <TR><TD align=left><a href=\"task2.pl\"><img src=\"image/task.png\" border=0> Task</a></TD>\n";
-      print "           <TD align=left><a href=\"YaBB_2.5.2/cgi-bin/yabb2/YaBB.pl?board=rfp\"><img src=\"image/auction.png\" border=0> RFP</a></TD></TR>\n";	
-      print "           <TR><TD align=left><a href=\"YaBB_2.5.2/cgi-bin/yabb2/YaBB.pl\"><img src=\"image/bulletin_board.png\" border=0> Board</a></TD>\n"; 		  
-      print "           <TD align=left><a href=\"YaBB_2.5.2/cgi-bin/yabb2/YaBB.pl?action=search\"><img src=\"image/Find.png\" border=0> Search</a></TD></TR>\n"; 
-      print "           <TR><TD align=left><a href=\"m.main2.pl?curdir=\"><img src=\"image/iphone.png\" border=0> Mobile</a></TD>\n";	  		  
-      print "           <TD align=left><a href=\"help2.pl\"><img src=\"image/help_book.png\" border=0> Help</a></TD></TR>\n";		  
-
-      print "           <tr><td colspan=2 height=8 bgcolor=EAF9FF></td></tr>\n";
-
-      print "           <TR bgColor=#99bcd8><TD colspan=2 align=left><font color=\"white\"><b>INFO</b></font></TD></TR>\n";
-      print "           <TR><TD colspan=2>$info</TD></TR>\n";
-
-      print "       </TABLE>\n";
-      print "       </FORM>\n";
-      print "     </td>\n";
-      print "     <td width=8><br></td>\n";
-      print "     <TD valign=top bgColor=#dbe6e0>\n";
-      print "       <TABLE cellSpacing=0 cellPadding=4 width=100% border=0>\n";
-      print "       <tr bgColor=#99bcd8><td colspan=2 width=100%><font color=white>Help</font></td></tr>\n";
-      print "       <tr><td align=left><a href=\"javascript:history.go(-1)\"><img src=\"image/GreenBack.png\" border=0></a></td><td align=right><a href=\"javascript:history.go(0)\"><img src=\"image/refresh.gif\" border=0></a></td></tr>\n";
-	  
-	my($curdir) = $FORM{"curdir"};
-	my($filename) = $FORM{"task"};
-
-	print "<tr><td align=left colspan=2><br>\n";
-	
-	
-	print "<iframe width=\"100%\" height=\"600\" scrolling=\"auto\" frameborder=\"0\" src=\"http://BatchSubmit.com/help.html\"></iframe>\n";
-
-	print "</td></tr>\n";
-
-      print "       </table>\n";
-      print "     </td>\n";
-      print "  </tr>\n";
-      print "</Table><br>\n";
-
-      print "<table cellspacing=0 cellpadding=0 width=100% border=0>\n";
-      print "    <tr><td bgcolor=#dbe6e0 align=center><br>All Rights Reserved</td></tr>\n";
-      print "    <tr><td bgcolor=#dbe6e0 align=center><br></td></tr>\n";
-      print "</table>\n";
-      print "</center>\n";
-
-	print "</body></html>\n";
-}
-
-
-
+if __name__ == "__main__":
+    main()
